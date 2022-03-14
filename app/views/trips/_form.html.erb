@@ -146,7 +146,7 @@
 
     <%= f.label :planner_id %>
     <!-- Input for planner_id start -->
-    <%= f.number_field :planner_id, class: planner_class, placeholder: "Enter planner" %>
+    <%= f.collection_select :planner_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for planner_id end -->
     <% if planner_was_invalid %>
       <% trip.errors.full_messages_for(:planner).each do |message| %>
