@@ -6,38 +6,26 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Trip</dt>
-      <!-- Display trip_id start -->
       <dd>
         <% if @activity.trip.present? %>
           <%= link_to activity.trip, activity.trip %>
         <% end %>
       </dd>
-      <!-- Display trip_id end -->
 
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= activity.name %></dd>
-      <!-- Display name end -->
 
       <dt>Day</dt>
-      <!-- Display day start -->
       <dd><%= activity.day %></dd>
-      <!-- Display day end -->
 
       <dt>Time of day</dt>
-      <!-- Display time_of_day start -->
       <dd><%= activity.time_of_day %></dd>
-      <!-- Display time_of_day end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= activity.description %></dd>
-      <!-- Display description end -->
 
       <dt>Image</dt>
-      <!-- Display image start -->
       <dd><%= activity.image %></dd>
-      <!-- Display image end -->
 
     </dl>
 
@@ -46,21 +34,17 @@
         <%= link_to_show_or_back activity, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link activity start -->
       <div class="col">
         <%= link_to edit_activity_url(activity), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link activity end -->
 
-      <!-- Delete link activity start -->
       <div class="col">
         <%= link_to activity, method: :delete, data: { confirm: "Do you really want to delete this activity?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link activity end -->
     </div>
   </div>
 

@@ -1,7 +1,6 @@
 <% was_validated = invitation.errors.any? %>
 
 <%= form_with(model: invitation, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for invited_user_id start -->
   <div class="form-group">
     <% invited_user_class = "form-control" %>
     <% invited_user_was_invalid = invitation.errors.include?(:invited_user) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :invited_user_id %>
-    <!-- Input for invited_user_id start -->
     <%= f.collection_select :invited_user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for invited_user_id end -->
     <% if invited_user_was_invalid %>
       <% invitation.errors.full_messages_for(:invited_user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for invited_user_id end -->
-  <!-- Label and input for trip_id start -->
   <div class="form-group">
     <% trip_class = "form-control" %>
     <% trip_was_invalid = invitation.errors.include?(:trip) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :trip_id %>
-    <!-- Input for trip_id start -->
     <%= f.collection_select :trip_id, Trip.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for trip_id end -->
     <% if trip_was_invalid %>
       <% invitation.errors.full_messages_for(:trip).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for trip_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

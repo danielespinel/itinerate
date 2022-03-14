@@ -1,7 +1,6 @@
 <% was_validated = attendance.errors.any? %>
 
 <%= form_with(model: attendance, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for trip_id start -->
   <div class="form-group">
     <% trip_class = "form-control" %>
     <% trip_was_invalid = attendance.errors.include?(:trip) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :trip_id %>
-    <!-- Input for trip_id start -->
     <%= f.collection_select :trip_id, Trip.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for trip_id end -->
     <% if trip_was_invalid %>
       <% attendance.errors.full_messages_for(:trip).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for trip_id end -->
-  <!-- Label and input for attendee_id start -->
   <div class="form-group">
     <% attendee_class = "form-control" %>
     <% attendee_was_invalid = attendance.errors.include?(:attendee) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :attendee_id %>
-    <!-- Input for attendee_id start -->
     <%= f.collection_select :attendee_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for attendee_id end -->
     <% if attendee_was_invalid %>
       <% attendance.errors.full_messages_for(:attendee).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attendee_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

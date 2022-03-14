@@ -1,7 +1,6 @@
 <% was_validated = activity.errors.any? %>
 
 <%= form_with(model: activity, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for trip_id start -->
   <div class="form-group">
     <% trip_class = "form-control" %>
     <% trip_was_invalid = activity.errors.include?(:trip) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :trip_id %>
-    <!-- Input for trip_id start -->
     <%= f.collection_select :trip_id, Trip.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for trip_id end -->
     <% if trip_was_invalid %>
       <% activity.errors.full_messages_for(:trip).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for trip_id end -->
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = activity.errors.include?(:name) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% activity.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for day start -->
   <div class="form-group">
     <% day_class = "form-control" %>
     <% day_was_invalid = activity.errors.include?(:day) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :day %>
-    <!-- Input for day start -->
     <%= f.date_select :day, class: day_class, placeholder: "Enter day" %>
-    <!-- Input for day end -->
     <% if day_was_invalid %>
       <% activity.errors.full_messages_for(:day).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for day end -->
-  <!-- Label and input for time_of_day start -->
   <div class="form-group">
     <% time_of_day_class = "form-control" %>
     <% time_of_day_was_invalid = activity.errors.include?(:time_of_day) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :time_of_day %>
-    <!-- Input for time_of_day start -->
     <%= f.text_field :time_of_day, class: time_of_day_class, placeholder: "Enter time of day" %>
-    <!-- Input for time_of_day end -->
     <% if time_of_day_was_invalid %>
       <% activity.errors.full_messages_for(:time_of_day).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for time_of_day end -->
-  <!-- Label and input for description start -->
   <div class="form-group">
     <% description_class = "form-control" %>
     <% description_was_invalid = activity.errors.include?(:description) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_field :description, class: description_class, placeholder: "Enter description" %>
-    <!-- Input for description end -->
     <% if description_was_invalid %>
       <% activity.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description end -->
-  <!-- Label and input for image start -->
   <div class="form-group">
     <% image_class = "form-control" %>
     <% image_was_invalid = activity.errors.include?(:image) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :image %>
-    <!-- Input for image start -->
     <%= f.text_field :image, class: image_class, placeholder: "Enter image" %>
-    <!-- Input for image end -->
     <% if image_was_invalid %>
       <% activity.errors.full_messages_for(:image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,6 +133,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for image end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
