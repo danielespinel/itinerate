@@ -19,4 +19,12 @@ class ActivityResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :planner,
+             resource: UserResource
+
+  filter :planner_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:planner).where(:trips => {:planner_id => value})
+    end
+  end
 end

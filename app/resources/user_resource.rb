@@ -25,4 +25,12 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :activities do
+    assign_each do |user, activities|
+      activities.select do |a|
+        a.id.in?(user.activities.map(&:id))
+      end
+    end
+  end
+
 end
