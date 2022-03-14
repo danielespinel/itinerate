@@ -1,0 +1,46 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Invitation #<%= invitation.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Invited user</dt>
+      <!-- Display invited_user_id start -->
+      <dd><%= invitation.invited_user_id %></dd>
+      <!-- Display invited_user_id end -->
+
+      <dt>Trip</dt>
+      <!-- Display trip_id start -->
+      <dd><%= invitation.trip_id %></dd>
+      <!-- Display trip_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back invitation, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link invitation start -->
+      <div class="col">
+        <%= link_to edit_invitation_url(invitation), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link invitation end -->
+
+      <!-- Delete link invitation start -->
+      <div class="col">
+        <%= link_to invitation, method: :delete, data: { confirm: "Do you really want to delete this invitation?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link invitation end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(invitation.updated_at) %> ago
+  </div>
+</div>
