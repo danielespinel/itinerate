@@ -16,7 +16,7 @@
 
     <%= f.label :invited_user_id %>
     <!-- Input for invited_user_id start -->
-    <%= f.number_field :invited_user_id, class: invited_user_class, placeholder: "Enter invited user" %>
+    <%= f.collection_select :invited_user_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for invited_user_id end -->
     <% if invited_user_was_invalid %>
       <% invitation.errors.full_messages_for(:invited_user).each do |message| %>
