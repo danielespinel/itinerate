@@ -9,6 +9,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :likes
+
   has_many   :invitations,
              foreign_key: :invited_user_id
 
