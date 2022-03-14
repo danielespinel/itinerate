@@ -1,6 +1,9 @@
 class Attendance < ApplicationRecord
   # Direct associations
 
+  belongs_to :attendee,
+             :class_name => "User"
+
   # Indirect associations
 
   # Validations
