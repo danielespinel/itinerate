@@ -1,6 +1,9 @@
 class Invitation < ApplicationRecord
   # Direct associations
 
+  belongs_to :invited_user,
+             :class_name => "User"
+
   # Indirect associations
 
   # Validations
