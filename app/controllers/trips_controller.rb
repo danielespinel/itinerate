@@ -3,7 +3,8 @@ class TripsController < ApplicationController
 
   # GET /trips
   def index
-    @trips = Trip.page(params[:page]).per(10)
+    @q = Trip.ransack(params[:q])
+    @trips = @q.result(:distinct => true).includes(:planner, :activities, :attendances, :invitations).page(params[:page]).per(10)
   end
 
   # GET /trips/1
