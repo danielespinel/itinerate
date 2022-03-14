@@ -7,6 +7,9 @@ class InvitationResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :invited_user,
+             resource: UserResource
+
   # Indirect associations
 
 end
