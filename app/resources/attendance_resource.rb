@@ -7,6 +7,8 @@ class AttendanceResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :trip
+
   belongs_to :attendee,
              resource: UserResource
 

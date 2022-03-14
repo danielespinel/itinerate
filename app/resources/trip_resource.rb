@@ -11,6 +11,8 @@ class TripResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :attendances
+
   has_many   :activities
 
   belongs_to :planner,
