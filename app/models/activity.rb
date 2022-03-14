@@ -1,6 +1,9 @@
 class Activity < ApplicationRecord
   # Direct associations
 
+  has_many   :comments,
+             :dependent => :destroy
+
   belongs_to :trip
 
   # Indirect associations
