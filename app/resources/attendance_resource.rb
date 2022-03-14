@@ -7,6 +7,9 @@ class AttendanceResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :attendee,
+             resource: UserResource
+
   # Indirect associations
 
 end
