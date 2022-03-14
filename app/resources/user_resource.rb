@@ -9,6 +9,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :trips,
+             foreign_key: :planner_id
+
   # Indirect associations
 
 end

@@ -11,6 +11,9 @@ class TripResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :planner,
+             resource: UserResource
+
   # Indirect associations
 
 end
