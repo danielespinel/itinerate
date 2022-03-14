@@ -2,16 +2,16 @@ class Trip < ApplicationRecord
   # Direct associations
 
   has_many   :invitations,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :attendances,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :activities,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :planner,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -22,5 +22,4 @@ class Trip < ApplicationRecord
   def to_s
     created_at
   end
-
 end

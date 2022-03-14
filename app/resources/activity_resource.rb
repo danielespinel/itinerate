@@ -24,7 +24,7 @@ class ActivityResource < ApplicationResource
 
   filter :planner_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:planner).where(:trips => {:planner_id => value})
+      scope.eager_load(:planner).where(trips: { planner_id: value })
     end
   end
 end

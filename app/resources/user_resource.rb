@@ -32,5 +32,4 @@ class UserResource < ApplicationResource
       end
     end
   end
-
 end

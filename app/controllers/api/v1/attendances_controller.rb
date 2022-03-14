@@ -13,7 +13,7 @@ class Api::V1::AttendancesController < Api::V1::GraphitiController
     attendance = AttendanceResource.build(params)
 
     if attendance.save
-      render jsonapi: attendance, status: 201
+      render jsonapi: attendance, status: :created
     else
       render jsonapi_errors: attendance
     end
@@ -33,7 +33,7 @@ class Api::V1::AttendancesController < Api::V1::GraphitiController
     attendance = AttendanceResource.find(params)
 
     if attendance.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: attendance
     end

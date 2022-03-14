@@ -4,7 +4,7 @@ class Attendance < ApplicationRecord
   belongs_to :trip
 
   belongs_to :attendee,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class Attendance < ApplicationRecord
   def to_s
     trip.to_s
   end
-
 end

@@ -13,5 +13,4 @@ class AttendanceResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

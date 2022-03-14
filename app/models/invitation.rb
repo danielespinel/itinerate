@@ -4,7 +4,7 @@ class Invitation < ApplicationRecord
   belongs_to :trip
 
   belongs_to :invited_user,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class Invitation < ApplicationRecord
   def to_s
     invited_user.to_s
   end
-
 end

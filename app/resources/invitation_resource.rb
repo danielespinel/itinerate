@@ -13,5 +13,4 @@ class InvitationResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

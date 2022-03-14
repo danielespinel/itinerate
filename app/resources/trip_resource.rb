@@ -21,5 +21,4 @@ class TripResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end
