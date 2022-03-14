@@ -4,6 +4,8 @@ RSpec.describe Invitation, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:trip) }
+
     it { should belong_to(:invited_user) }
 
     end
