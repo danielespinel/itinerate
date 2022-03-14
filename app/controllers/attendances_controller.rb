@@ -3,7 +3,7 @@ class AttendancesController < ApplicationController
 
   # GET /attendances
   def index
-    @attendances = Attendance.all
+    @attendances = Attendance.page(params[:page]).per(10)
   end
 
   # GET /attendances/1
