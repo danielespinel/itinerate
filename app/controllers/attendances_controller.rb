@@ -1,25 +1,20 @@
 class AttendancesController < ApplicationController
   before_action :set_attendance, only: %i[show edit update destroy]
 
-  # GET /attendances
   def index
     @q = Attendance.ransack(params[:q])
     @attendances = @q.result(distinct: true).includes(:attendee,
                                                       :trip).page(params[:page]).per(10)
   end
 
-  # GET /attendances/1
   def show; end
 
-  # GET /attendances/new
   def new
     @attendance = Attendance.new
   end
 
-  # GET /attendances/1/edit
   def edit; end
 
-  # POST /attendances
   def create
     @attendance = Attendance.new(attendance_params)
 
@@ -35,7 +30,6 @@ class AttendancesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /attendances/1
   def update
     if @attendance.update(attendance_params)
       redirect_to @attendance, notice: "Attendance was successfully updated."
@@ -44,7 +38,6 @@ class AttendancesController < ApplicationController
     end
   end
 
-  # DELETE /attendances/1
   def destroy
     @attendance.destroy
     message = "Attendance was successfully deleted."
@@ -57,12 +50,10 @@ class AttendancesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_attendance
     @attendance = Attendance.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def attendance_params
     params.require(:attendance).permit(:trip_id, :attendee_id)
   end
