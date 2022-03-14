@@ -22,6 +22,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :activities,
+             :through => :trips,
+             :source => :activities
+
   # Validations
 
   # Scopes

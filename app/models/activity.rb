@@ -11,6 +11,10 @@ class Activity < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :planner,
+             :through => :trip,
+             :source => :planner
+
   # Validations
 
   validates :time_of_day, :inclusion => { :in => [ "morning", "afternoon", "night" ]  }
