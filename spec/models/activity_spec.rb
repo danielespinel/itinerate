@@ -12,5 +12,7 @@ RSpec.describe Activity, type: :model do
 
     describe "Validations" do
 
+    it { should validate_inclusion_of(:time_of_day).in_array([ "morning", "afternoon", "night" ]) }
+
     end
 end
