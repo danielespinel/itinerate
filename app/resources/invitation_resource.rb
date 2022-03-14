@@ -7,6 +7,8 @@ class InvitationResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :trip
+
   belongs_to :invited_user,
              resource: UserResource
 
