@@ -1,5 +1,7 @@
 ActiveAdmin.register Trip do
 
+ permit_params :start_date, :end_date, :location, :name, :image, :planner_id
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
