@@ -4,6 +4,8 @@ RSpec.describe Trip, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:activities) }
+
     it { should belong_to(:planner) }
 
     end
