@@ -11,6 +11,8 @@ class ActivityResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :comments
+
   belongs_to :trip
 
   # Indirect associations
