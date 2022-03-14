@@ -24,7 +24,12 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.new(attendance_params)
 
     if @attendance.save
-      redirect_to @attendance, notice: 'Attendance was successfully created.'
+      message = 'Attendance was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @attendance, notice: message
+      end
     else
       render :new
     end
