@@ -32,7 +32,11 @@
 
       <dt>Planner</dt>
       <!-- Display planner_id start -->
-      <dd><%= trip.planner_id %></dd>
+      <dd>
+        <% if @trip.planner.present? %>
+          <%= link_to trip.planner, trip.planner %>
+        <% end %>
+      </dd>
       <!-- Display planner_id end -->
 
     </dl>

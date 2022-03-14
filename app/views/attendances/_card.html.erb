@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Trip</dt>
       <!-- Display trip_id start -->
-      <dd><%= attendance.trip_id %></dd>
+      <dd>
+        <% if @attendance.trip.present? %>
+          <%= link_to attendance.trip, attendance.trip %>
+        <% end %>
+      </dd>
       <!-- Display trip_id end -->
 
       <dt>Attendee</dt>
       <!-- Display attendee_id start -->
-      <dd><%= attendance.attendee_id %></dd>
+      <dd>
+        <% if @attendance.attendee.present? %>
+          <%= link_to attendance.attendee, attendance.attendee %>
+        <% end %>
+      </dd>
       <!-- Display attendee_id end -->
 
     </dl>
