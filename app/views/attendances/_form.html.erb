@@ -1,0 +1,57 @@
+<% was_validated = attendance.errors.any? %>
+
+<%= form_with(model: attendance, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for trip_id start -->
+  <div class="form-group">
+    <% trip_class = "form-control" %>
+    <% trip_was_invalid = attendance.errors.include?(:trip) %>
+
+    <% if was_validated %>
+      <% if trip_was_invalid %>
+        <% trip_class << " is-invalid" %>
+      <% else %>
+        <% trip_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :trip_id %>
+    <!-- Input for trip_id start -->
+    <%= f.number_field :trip_id, class: trip_class, placeholder: "Enter trip" %>
+    <!-- Input for trip_id end -->
+    <% if trip_was_invalid %>
+      <% attendance.errors.full_messages_for(:trip).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for trip_id end -->
+  <!-- Label and input for attendee_id start -->
+  <div class="form-group">
+    <% attendee_class = "form-control" %>
+    <% attendee_was_invalid = attendance.errors.include?(:attendee) %>
+
+    <% if was_validated %>
+      <% if attendee_was_invalid %>
+        <% attendee_class << " is-invalid" %>
+      <% else %>
+        <% attendee_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :attendee_id %>
+    <!-- Input for attendee_id start -->
+    <%= f.number_field :attendee_id, class: attendee_class, placeholder: "Enter attendee" %>
+    <!-- Input for attendee_id end -->
+    <% if attendee_was_invalid %>
+      <% attendance.errors.full_messages_for(:attendee).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for attendee_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
