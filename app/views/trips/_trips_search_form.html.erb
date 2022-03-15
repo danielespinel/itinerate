@@ -2,13 +2,13 @@
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
-    <%= f.label :image_cont, "Image contains" %>
-    <%= f.text_field :image_cont, :class => "form-control", :placeholder => "Image contains" %>
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :name_cont, "Name contains" %>
-    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+    <%= f.label :image_cont, "Image contains" %>
+    <%= f.text_field :image_cont, :class => "form-control", :placeholder => "Image contains" %>
   </div>
 
   <div class="form-group">
@@ -17,9 +17,44 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :end_date_cont, "End date contains" %>
-    <%= f.text_field :end_date_cont, :class => "form-control", :placeholder => "End date contains" %>
+    <%= f.label :end_date, "End date" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='end_dategteqPicker' data-target-input="nearest">
+          <%= f.text_field :end_date_gteq, :class => "form-control datetimepicker-input", :placeholder => "End date greater than or equal to", :data => {:target => '#end_dategteqPicker'} %>
+          <div class="input-group-append" data-target='#end_dategteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='end_datelteqPicker' data-target-input="nearest">
+          <%= f.text_field :end_date_lteq, :class => "form-control datetimepicker-input", :placeholder => "End date less than or equal to", :data => {:target => '#end_datelteqPicker'} %>
+          <div class="input-group-append" data-target='#end_datelteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#end_dategteqPicker').datetimepicker({
+              format: 'MM/DD/YYYY'
+          });
+          $('#end_datelteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'MM/DD/YYYY'
+          });
+          $('#end_dategteqPicker').on("dp.change", function (e) {
+              $('#end_datelteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#end_datelteqPicker').on("dp.change", function (e) {
+              $('#end_dategteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
 
   <div class="form-group">
     <%= f.label :start_date, "Start date" %>
@@ -106,6 +141,46 @@
     <%= f.label :planner_first_name_cont, "Planner first_name contains" %>
     <%= f.text_field :planner_first_name_cont, :class => "form-control", :placeholder => "Planner first_name contains" %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :day, "AvailableDay Day" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='available_daysgteqdayPicker' data-target-input="nearest">
+          <%= f.text_field :available_days_day_gteq, :class => "form-control datetimepicker-input", :placeholder => "AvailableDay Day greater than or equal to", :data => {:target => '#available_daysgteqdayPicker'} %>
+          <div class="input-group-append" data-target='#available_daysgteqdayPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='available_dayslteqdayPicker' data-target-input="nearest">
+          <%= f.text_field :available_days_day_lteq, :class => "form-control datetimepicker-input", :placeholder => "AvailableDay Day less than or equal to", :data => {:target => '#available_dayslteqdayPicker'} %>
+          <div class="input-group-append" data-target='#available_dayslteqdayPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#available_daysgteqdayPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#available_dayslteqdayPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#available_daysgteqdayPicker').on("dp.change", function (e) {
+              $('#available_dayslteqdayPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#available_dayslteqdayPicker').on("dp.change", function (e) {
+              $('#available_daysgteqdayPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
 
 
   <%= f.submit :class => "btn btn-primary btn-block mb-1" %>

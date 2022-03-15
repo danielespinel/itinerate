@@ -26,6 +26,10 @@ class User < ApplicationRecord
              through: :trips,
              source: :activities
 
+  has_many   :available_days,
+             through: :trips,
+             source: :available_days
+
   # Validations
 
   # Scopes
