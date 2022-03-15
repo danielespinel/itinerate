@@ -58,21 +58,26 @@
 
 
   <div class="form-group">
-    <%= f.label :created_at, "Trip Created at" %>
+    <%= f.label :trips_name_cont, "Trips name contains" %>
+    <%= f.text_field :trips_name_cont, :class => "form-control", :placeholder => "Trips name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :day, "AvailableDay Day" %>
     <div class="row">
       <div class='col-md-6 mb-1'>
-        <div class='input-group date' id='tripsgteqcreated_atPicker' data-target-input="nearest">
-          <%= f.text_field :trips_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Trip Created at greater than or equal to", :data => {:target => '#tripsgteqcreated_atPicker'} %>
-          <div class="input-group-append" data-target='#tripsgteqcreated_atPicker' data-toggle="datetimepicker">
+        <div class='input-group date' id='available_daysgteqdayPicker' data-target-input="nearest">
+          <%= f.text_field :available_days_day_gteq, :class => "form-control datetimepicker-input", :placeholder => "AvailableDay Day greater than or equal to", :data => {:target => '#available_daysgteqdayPicker'} %>
+          <div class="input-group-append" data-target='#available_daysgteqdayPicker' data-toggle="datetimepicker">
             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
           </div>
         </div>
       </div>
 
       <div class='col-md-6'>
-        <div class='input-group date' id='tripslteqcreated_atPicker' data-target-input="nearest">
-          <%= f.text_field :trips_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Trip Created at less than or equal to", :data => {:target => '#tripslteqcreated_atPicker'} %>
-          <div class="input-group-append" data-target='#tripslteqcreated_atPicker' data-toggle="datetimepicker">
+        <div class='input-group date' id='available_dayslteqdayPicker' data-target-input="nearest">
+          <%= f.text_field :available_days_day_lteq, :class => "form-control datetimepicker-input", :placeholder => "AvailableDay Day less than or equal to", :data => {:target => '#available_dayslteqdayPicker'} %>
+          <div class="input-group-append" data-target='#available_dayslteqdayPicker' data-toggle="datetimepicker">
             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
           </div>
         </div>
@@ -81,18 +86,18 @@
   </div>
   <script type="text/javascript">
       $(function () {
-          $('#tripsgteqcreated_atPicker').datetimepicker({
+          $('#available_daysgteqdayPicker').datetimepicker({
               format: 'YYYY-MM-DD hh:mm:SS'
           });
-          $('#tripslteqcreated_atPicker').datetimepicker({
+          $('#available_dayslteqdayPicker').datetimepicker({
               useCurrent: false,
               format: 'YYYY-MM-DD hh:mm:SS'
           });
-          $('#tripsgteqcreated_atPicker').on("dp.change", function (e) {
-              $('#tripslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+          $('#available_daysgteqdayPicker').on("dp.change", function (e) {
+              $('#available_dayslteqdayPicker').data("DateTimePicker").minDate(e.date);
           });
-          $('#tripslteqcreated_atPicker').on("dp.change", function (e) {
-              $('#tripsgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+          $('#available_dayslteqdayPicker').on("dp.change", function (e) {
+              $('#available_daysgteqdayPicker').data("DateTimePicker").maxDate(e.date);
           });
       });
   </script>

@@ -1,6 +1,9 @@
 class Trip < ApplicationRecord
   # Direct associations
 
+  has_many   :available_days,
+             dependent: :destroy
+
   has_many   :invitations,
              dependent: :destroy
 
@@ -20,6 +23,6 @@ class Trip < ApplicationRecord
   # Scopes
 
   def to_s
-    created_at
+    name
   end
 end

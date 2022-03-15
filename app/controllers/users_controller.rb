@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).includes(:trips, :comments,
-                                                :attendances, :invitations, :likes, :activities).page(params[:page]).per(10)
+                                                :attendances, :invitations, :likes, :available_days, :activities).page(params[:page]).per(10)
   end
 
   def show

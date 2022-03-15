@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   scope path: ApplicationResource.endpoint_namespace,
         defaults: { format: :jsonapi } do
     scope module: "api/v1", as: "api" do
+      resources :available_days
+
       resources :likes
 
       resources :invitations
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
   end
   ActiveAdmin.routes(self)
   root to: "users#index"
+  resources :available_days
   resources :likes
   resources :invitations
   resources :attendances

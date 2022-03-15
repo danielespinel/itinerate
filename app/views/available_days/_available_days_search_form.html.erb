@@ -1,20 +1,5 @@
-<%= search_form_for @q, :class => collapse_search_form, :id => "activities_filters" do |f| %>
+<%= search_form_for @q, :class => collapse_search_form, :id => "available_days_filters" do |f| %>
   <p class="lead">Narrow results:</p>
-
-  <div class="form-group">
-    <%= f.label :image_cont, "Image contains" %>
-    <%= f.text_field :image_cont, :class => "form-control", :placeholder => "Image contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :description_cont, "Description contains" %>
-    <%= f.text_field :description_cont, :class => "form-control", :placeholder => "Description contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :time_of_day_cont, "Time of day contains" %>
-    <%= f.text_field :time_of_day_cont, :class => "form-control", :placeholder => "Time of day contains" %>
-  </div>
 
   <div class="form-group">
     <%= f.label :day, "Day" %>
@@ -41,11 +26,11 @@
   <script type="text/javascript">
       $(function () {
           $('#daygteqPicker').datetimepicker({
-              format: 'MM/DD/YYYY'
+              format: 'YYYY-MM-DD hh:mm:SS'
           });
           $('#daylteqPicker').datetimepicker({
               useCurrent: false,
-              format: 'MM/DD/YYYY'
+              format: 'YYYY-MM-DD hh:mm:SS'
           });
           $('#daygteqPicker').on("dp.change", function (e) {
               $('#daylteqPicker').data("DateTimePicker").minDate(e.date);
@@ -57,8 +42,8 @@
   </script>
 
   <div class="form-group">
-    <%= f.label :name_cont, "Name contains" %>
-    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+    <%= f.label :day_name_cont, "Day name contains" %>
+    <%= f.text_field :day_name_cont, :class => "form-control", :placeholder => "Day name contains" %>
   </div>
 
   <div class="form-group">
@@ -115,10 +100,10 @@
 
   <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
-  <a href="/activities" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+  <a href="/available_days" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
 
 <% end %>
 
-<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#activities_filters">
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#available_days_filters">
   Show filters
 </a>
