@@ -1,0 +1,71 @@
+<% was_validated = available_day.errors.any? %>
+
+<%= form_with(model: available_day, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <div class="form-group">
+    <% day_class = "form-control" %>
+    <% day_was_invalid = available_day.errors.include?(:day) %>
+
+    <% if was_validated %>
+      <% if day_was_invalid %>
+        <% day_class << " is-invalid" %>
+      <% else %>
+        <% day_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :day %>
+    <%= f.datetime_select :day, class: day_class, placeholder: "Enter day" %>
+    <% if day_was_invalid %>
+      <% available_day.errors.full_messages_for(:day).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% day_name_class = "form-control" %>
+    <% day_name_was_invalid = available_day.errors.include?(:day_name) %>
+
+    <% if was_validated %>
+      <% if day_name_was_invalid %>
+        <% day_name_class << " is-invalid" %>
+      <% else %>
+        <% day_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :day_name %>
+    <%= f.text_field :day_name, class: day_name_class, placeholder: "Enter day name" %>
+    <% if day_name_was_invalid %>
+      <% available_day.errors.full_messages_for(:day_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% trip_class = "form-control" %>
+    <% trip_was_invalid = available_day.errors.include?(:trip) %>
+
+    <% if was_validated %>
+      <% if trip_was_invalid %>
+        <% trip_class << " is-invalid" %>
+      <% else %>
+        <% trip_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :trip_id %>
+    <%= f.collection_select :trip_id, Trip.all, :id, :to_s, {}, class: "form-control" %>
+    <% if trip_was_invalid %>
+      <% available_day.errors.full_messages_for(:trip).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

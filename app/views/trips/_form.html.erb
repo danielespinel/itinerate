@@ -36,7 +36,7 @@
     <% end %>
 
     <%= f.label :end_date %>
-    <%= f.text_field :end_date, class: end_date_class, placeholder: "Enter end date" %>
+    <%= f.date_select :end_date, class: end_date_class, placeholder: "Enter end date" %>
     <% if end_date_was_invalid %>
       <% trip.errors.full_messages_for(:end_date).each do |message| %>
         <div class="invalid-feedback d-flex">

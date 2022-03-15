@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include JwtToken
   # Direct associations
 
   has_many   :likes,
@@ -26,6 +27,10 @@ class User < ApplicationRecord
              through: :trips,
              source: :activities
 
+  has_many   :available_days,
+             through: :trips,
+             source: :available_days
+
   # Validations
 
   # Scopes
@@ -33,4 +38,9 @@ class User < ApplicationRecord
   def to_s
     first_name
   end
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 end

@@ -32,4 +32,12 @@ class UserResource < ApplicationResource
       end
     end
   end
+
+  has_many :available_days do
+    assign_each do |user, available_days|
+      available_days.select do |a|
+        a.id.in?(user.available_days.map(&:id))
+      end
+    end
+  end
 end
