@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Available Days
+
+    <a data-toggle="collapse" href="#trip_available_days_new_form">
+      Add available day
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @trip.available_days.each do |available_day| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <%= link_to available_day, available_day %>
+
+        <%= link_to available_day, method: :delete, data: { confirm: "Do you really want to delete this available_day" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="trip_available_days_new_form">
+        <%= render partial: "trips/trip_available_days_new_form" %>
+      </div>
+    </div>
+
+  </ul>
+</div>

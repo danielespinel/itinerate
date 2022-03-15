@@ -15,6 +15,8 @@ RSpec.describe User, type: :model do
 
   describe "InDirect Associations" do
     it { should have_many(:activities) }
+
+    it { should have_many(:available_days) }
   end
 
   describe "Validations" do
