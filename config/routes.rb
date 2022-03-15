@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   scope path: ApplicationResource.endpoint_namespace,
         defaults: { format: :jsonapi } do
     scope module: "api/v1", as: "api" do
-      resources :available_days
-
       resources :likes
 
       resources :invitations
@@ -24,7 +22,6 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: "trips#index"
-  resources :available_days
   resources :likes
   resources :invitations
   resources :attendances

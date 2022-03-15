@@ -11,8 +11,6 @@ class TripResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :available_days
-
   has_many   :invitations
 
   has_many   :attendances
