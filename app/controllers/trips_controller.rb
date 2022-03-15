@@ -4,11 +4,10 @@ class TripsController < ApplicationController
   def index
     @q = Trip.ransack(params[:q])
     @trips = @q.result(distinct: true).includes(:planner, :activities,
-                                                :attendances, :invitations, :available_days).page(params[:page]).per(10)
+                                                :attendances, :invitations).page(params[:page]).per(10)
   end
 
   def show
-    @available_day = AvailableDay.new
     @invitation = Invitation.new
     @attendance = Attendance.new
     @activity = Activity.new
