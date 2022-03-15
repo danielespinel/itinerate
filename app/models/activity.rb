@@ -18,7 +18,7 @@ class Activity < ApplicationRecord
   # Validations
 
   validates :time_of_day,
-            inclusion: { in: ["morning", "afternoon", "night"] }
+            inclusion: { in: ["morning", "afternoon", "evening"] }
 
   # Scopes
 

@@ -5,7 +5,7 @@ class CreateActivities < ActiveRecord::Migration[6.0]
       t.string :name
       t.date :day
       t.string :time_of_day
-      t.string :description
+      t.text :description
       t.string :image
 
       t.timestamps

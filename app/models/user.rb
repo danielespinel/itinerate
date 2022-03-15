@@ -27,11 +27,15 @@ class User < ApplicationRecord
              through: :trips,
              source: :activities
 
-  has_many   :available_days,
-             through: :trips,
-             source: :available_days
-
   # Validations
+
+  validates :email, presence: true
+
+  validates :first_name, presence: true
+
+  validates :last_name, presence: true
+
+  validates :password, presence: true
 
   # Scopes
 
